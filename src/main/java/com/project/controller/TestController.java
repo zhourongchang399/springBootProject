@@ -1,9 +1,7 @@
 package com.project.controller;
 
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.lang.annotation.Target;
 
@@ -16,8 +14,15 @@ public class TestController {
 
     @ApiOperation(value = "测试接口")
     @GetMapping("/test")
-    public String test(){
+    public String testGet(){
         return "succeed!";
     }
+
+    @ApiOperation(value = "测试接口")
+    @PostMapping("/test")
+    public String testPost(@RequestBody String msg){
+        return msg;
+    }
+
 
 }
